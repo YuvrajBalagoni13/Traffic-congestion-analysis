@@ -1,0 +1,22 @@
+# Datasets and Raw Files 
+/BRB_Dataset/
+/BRB_Dataset_Test/
+/BRB_YOLO_Dataset/
+
+# Model Artifacts 
+/checkpoints/
+
+# Generated Outputs 
+/Example_inference_videos/
+/No_detection_images/
+
+# Miscellaneous Directories
+/miscellaneous/
+/zipfile/
+
+# File Extensions 
+/csv_files/
+/json_files/
+*.csv
+*.json
+*.zip
