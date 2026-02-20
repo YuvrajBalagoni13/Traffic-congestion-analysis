@@ -31,7 +31,13 @@ So my approach was to generate features from the unstructured video data using a
 - Now based on these detections created features
 	- for features I added regions in the entry & exit for every camera for all the entries & exits of the roundabout.
 	- Now based of these regions the features are generated
-	- Also there is line which is used to track the count of the vehicles already in the roundabout![[imgs/normanniles1.png]]![[imgs/normanniles2.png]]
+	- Also there is line which is used to track the count of the vehicles already in the roundabout
+    <a href="https://github.com/YuvrajBalagoni13/Traffic-congestion-analysis/blob/main/imgs/normanniles1.png">
+  <img width="100%" alt="Integration" src="https://raw.githubusercontent.com/YuvrajBalagoni13/Traffic-congestion-analysis/main/imgs/normanniles1.png" />
+</a>
+<a href="https://github.com/YuvrajBalagoni13/Traffic-congestion-analysis/blob/main/imgs/normanniles2.png">
+  <img width="100%" alt="Integration" src="https://raw.githubusercontent.com/YuvrajBalagoni13/Traffic-congestion-analysis/main/imgs/normanniles2.png" />
+</a>
 	- ### Features for every 1 min video-
 		1. Number of vehicles passing through Entry
 		2. Number of vehicles passing through Entry but already in roundabout
@@ -57,7 +63,10 @@ So my approach was to generate features from the unstructured video data using a
 		20. is rush hour, is morning rush & is evening rush
 
 		In total we had a total of 165 features
-- Now another major issue in this challenge was the imbalance in the dataset![[imgs/imbalance_entire_dataset.png]]
+- Now another major issue in this challenge was the imbalance in the dataset
+<a href="https://github.com/YuvrajBalagoni13/Traffic-congestion-analysis/blob/main/imgs/imbalance_entire_dataset.png">
+  <img width="100%" alt="Integration" src="https://raw.githubusercontent.com/YuvrajBalagoni13/Traffic-congestion-analysis/main/imgs/imbalance_entire_dataset.png" />
+</a>
 - For this issue i just downsampled the majority class (free flowing) 
   IMP - Due to resource constraints, it was not possible to process the entire 16k videos as each video was taking about 10-15 secs on T4 GPU (on google Colab) which would be about 67 hrs. Instead I did around 3k videos (I did downsampling before processing the videos for efficiency).
   In downsampling I removed about 40% of the free flowing samples which had free flowing for the next 5 minutes. That means I samples is considered for getting removed if its 5 mins future are also free flowing.
