@@ -100,3 +100,15 @@ I experimented with two distinct data balancing strategies:
 * **The Best Approach:** The **"Without Oversampling"** strategy got the best performance, achieving a final **Macro F1-Score of 0.4612**.
 * **The Accuracy vs. F1 Trade-off:** While random oversampling artificially increased the overall Accuracy (~53%), it dragged down the F1-Macro score (~43%). This occurred because exact data duplication caused the tree-based models to overfit on memorized points, reducing the algorithm's built-in class penalties.
 * **Conclusion:** By relying strictly on the downsampled dataset and LightGBM's `class_weight='balanced'` parameter, the model performed better.
+
+## Key Features based on Feature Importance
+
+<a href="https://github.com/YuvrajBalagoni13/Traffic-congestion-analysis/blob/main/imgs/feature_importance_readme.png">
+  <img width="100%" alt="Integration" src="https://raw.githubusercontent.com/YuvrajBalagoni13/Traffic-congestion-analysis/main/imgs/feature_importance_readme.png" />
+</a>
+
+When predicting entry congestion rates 5 minutes into the future (t_1 to t_5), the LightGBM model relies heavily on three specific categories of features to understand the compounding nature of traffic based on the feature importance:
+
+1. Historical Traffic Trends (Lags): The most critical predictor was the autoregressive lag features from the previous 10 minutes (tm_1 through tm_10) idle. Also a lot of the features providing historical values were important in the prediction.
+2. Roundabout Saturation (The Choke Point): Features tracking vehicles already inside the roundabout (their total count and average idle time) are highly predictive. A saturated, slow-moving roundabout prevents new cars from merging, creating a cascading backup that directly dictates the entry congestion rating several minutes later.
+3. Severe Idle Time & time spent Indicators: Almost all the top features indicate that the model is heavily relying on the idle time & time spent by vehicles, which makes sense.

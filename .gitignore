@@ -7,6 +7,7 @@
 /LightGBM_results/
 /lightgbmClassifier_Result/
 /XGBoost_results/
+/runs/
 
 # Model Artifacts 
 /checkpoints/
