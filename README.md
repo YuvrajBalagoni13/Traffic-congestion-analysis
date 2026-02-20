@@ -32,12 +32,10 @@ So my approach was to generate features from the unstructured video data using a
 	- for features I added regions in the entry & exit for every camera for all the entries & exits of the roundabout.
 	- Now based of these regions the features are generated
 	- Also there is line which is used to track the count of the vehicles already in the roundabout
-    <a href="https://github.com/YuvrajBalagoni13/Traffic-congestion-analysis/blob/main/imgs/normanniles1.png">
-  <img width="100%" alt="Integration" src="https://raw.githubusercontent.com/YuvrajBalagoni13/Traffic-congestion-analysis/main/imgs/normanniles1.png" />
-</a>
-<a href="https://github.com/YuvrajBalagoni13/Traffic-congestion-analysis/blob/main/imgs/normanniles2.png">
-  <img width="100%" alt="Integration" src="https://raw.githubusercontent.com/YuvrajBalagoni13/Traffic-congestion-analysis/main/imgs/normanniles2.png" />
-</a>
+    <a href="https://github.com/YuvrajBalagoni13/Traffic-congestion-analysis/blob/main/imgs/normanniles1.png"><img width="100%" alt="Integration" src="https://raw.githubusercontent.com/YuvrajBalagoni13/Traffic-congestion-analysis/main/imgs/normanniles1.png" /></a>
+
+	<a href="https://github.com/YuvrajBalagoni13/Traffic-congestion-analysis/blob/main/imgs/normanniles2.png"><img width="100%" alt="Integration" src="https://raw.githubusercontent.com/YuvrajBalagoni13/Traffic-congestion-analysis/main/imgs/normanniles2.png" /></a>
+  
 	- ### Features for every 1 min video-
 		1. Number of vehicles passing through Entry
 		2. Number of vehicles passing through Entry but already in roundabout
@@ -64,9 +62,8 @@ So my approach was to generate features from the unstructured video data using a
 
 		In total we had a total of 165 features
 - Now another major issue in this challenge was the imbalance in the dataset
-<a href="https://github.com/YuvrajBalagoni13/Traffic-congestion-analysis/blob/main/imgs/imbalance_entire_dataset.png">
-  <img width="100%" alt="Integration" src="https://raw.githubusercontent.com/YuvrajBalagoni13/Traffic-congestion-analysis/main/imgs/imbalance_entire_dataset.png" />
-</a>
+<a href="https://github.com/YuvrajBalagoni13/Traffic-congestion-analysis/blob/main/imgs/imbalance_entire_dataset.png"><img width="100%" alt="Integration" src="https://raw.githubusercontent.com/YuvrajBalagoni13/Traffic-congestion-analysis/main/imgs/imbalance_entire_dataset.png" /></a>
+  
 - For this issue i just downsampled the majority class (free flowing) 
   IMP - Due to resource constraints, it was not possible to process the entire 16k videos as each video was taking about 10-15 secs on T4 GPU (on google Colab) which would be about 67 hrs. Instead I did around 3k videos (I did downsampling before processing the videos for efficiency).
   In downsampling I removed about 40% of the free flowing samples which had free flowing for the next 5 minutes. That means I samples is considered for getting removed if its 5 mins future are also free flowing.
@@ -103,10 +100,8 @@ I experimented with two distinct data balancing strategies:
 
 ## Key Features based on Feature Importance
 
-<a href="https://github.com/YuvrajBalagoni13/Traffic-congestion-analysis/blob/main/imgs/feature_importance_readme.png">
-  <img width="100%" alt="Integration" src="https://raw.githubusercontent.com/YuvrajBalagoni13/Traffic-congestion-analysis/main/imgs/feature_importance_readme.png" />
-</a>
-
+<a href="https://github.com/YuvrajBalagoni13/Traffic-congestion-analysis/blob/main/imgs/feature_importance_readme.png"><img width="100%" alt="Integration" src="https://raw.githubusercontent.com/YuvrajBalagoni13/Traffic-congestion-analysis/main/imgs/feature_importance_readme.png" /></a>
+  
 When predicting entry congestion rates 5 minutes into the future (t_1 to t_5), the LightGBM model relies heavily on three specific categories of features to understand the compounding nature of traffic based on the feature importance:
 
 1. Historical Traffic Trends (Lags): The most critical predictor was the autoregressive lag features from the previous 10 minutes (tm_1 through tm_10) idle. Also a lot of the features providing historical values were important in the prediction.
