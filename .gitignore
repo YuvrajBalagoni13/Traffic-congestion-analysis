@@ -3,6 +3,11 @@
 /BRB_Dataset_Test/
 /BRB_YOLO_Dataset/
 
+/zipfile/
+/LightGBM_results/
+/lightgbmClassifier_Result/
+/XGBoost_results/
+
 # Model Artifacts 
 /checkpoints/
 
@@ -12,7 +17,6 @@
 
 # Miscellaneous Directories
 /miscellaneous/
-/zipfile/
 
 # File Extensions 
 /csv_files/
